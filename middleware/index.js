@@ -41,6 +41,7 @@ middlewareObj.retrieveIGDBCode = function (req, res, next){
             }
             else {
                 console.log("Could not find game.");
+                req.IGDBCode = -1;
             }
             next();
         });
