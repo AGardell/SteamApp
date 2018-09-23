@@ -36,7 +36,12 @@ middlewareObj.retrieveIGDBCode = function (req, res, next){
 
         response.on("end", () => {
             body = JSON.parse(body);
-            req.IGDBCode = body[0].id;
+            if (body !== undefined) {
+                req.IGDBCode = body[0].id;
+            }
+            else {
+                console.log("Could not find game.");
+            }
             next();
         });
     });
