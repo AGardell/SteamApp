@@ -1,0 +1,16 @@
+<h3>Here are your games!</h3>
+
+<% games.forEach(game => { %>
+    <div>
+        <a href="games/<%=game.appid%>/<%=game.name%>">
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/<%=game.appid%>/<%=game.img_logo_url%>.jpg" alt="">         
+        </a>   
+    </div>
+    <p><%=game.name%></p>
+    <% if (game.playtime_forever < 60) { %>
+        <p><%=game.playtime_forever%> Minutes</p>
+    <% } else { %>
+        <% let hoursPlayed = Math.round(game.playtime_forever / 60) %>
+        <p><%=hoursPlayed%> Hours</p>
+    <% } %>
+<% }) %>
