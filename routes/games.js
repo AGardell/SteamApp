@@ -36,7 +36,7 @@ router.get("/", (req,res) => {
 
 // SHOW
 router.get("/:gameID/:gameName", middleware.retrieveIGDBCode, (req, res) => {
-    //console.log(req.IGDBCode);
+    console.log(req.IGDBCode);
     const options = {
         host: "api-endpoint.igdb.com",
         path: "/games/" + req.IGDBCode,
@@ -51,8 +51,8 @@ router.get("/:gameID/:gameName", middleware.retrieveIGDBCode, (req, res) => {
         const {statusCode} = response;
 
         if (statusCode !== 200) {
-            console.log("ERROR");
-            return res.redirect("/");
+            console.log("ERROR: " + statusCode);
+            return res.redirect("back");
         }
 
         let body = "";
