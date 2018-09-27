@@ -1,5 +1,14 @@
 <h1>You've reached the show page!</h1>
 
+<% if(gameInfo.cover !== undefined && gameInfo.cover.url !== undefined) { %>
+<div>
+    <img src="<%=gameInfo.cover.url%>" alt="">
+</div>
+<% } %>
+
 <div>
     <%=gameInfo.summary%>    
+</div>
+<div>
+    <%=gameInfo.aggregated_rating%>
 </div>

@@ -3,6 +3,8 @@ const express     = require("express"),
       indexRoutes = require("./routes/index.js");
       gamesRoutes = require("./routes/games.js")
 
+// 76561198131319159 - my steam ID
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "public"));
 

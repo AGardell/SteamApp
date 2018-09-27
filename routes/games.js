@@ -36,7 +36,6 @@ router.get("/", (req,res) => {
 
 // SHOW
 router.get("/:gameID/:gameName", middleware.retrieveIGDBCode, (req, res) => {
-    console.log(req.IGDBCode);
     const options = {
         host: "api-endpoint.igdb.com",
         path: "/games/" + req.IGDBCode,
@@ -63,6 +62,7 @@ router.get("/:gameID/:gameName", middleware.retrieveIGDBCode, (req, res) => {
 
         response.on("end", () => {
             body = JSON.parse(body);
+            console.log(body[0]);            
             res.render("games/show", {gameInfo: body[0]});
         });
     });    
